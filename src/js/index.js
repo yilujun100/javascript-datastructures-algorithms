@@ -6,3 +6,5 @@ export { decimalToBinary } from './others/base-converter';
 // chapter 05
 export { default as Queue } from './data-structures/queue';
 export { default as Deque } from './data-structures/deque';
+export { hotPotato } from './others/hot-potato';
+export { palindromeChecker } from './others/palindrome-checker';
