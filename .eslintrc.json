@@ -39,6 +39,7 @@
         "operator-assignment": 0,
         "eqeqeq": 0,
         "no-bitwise": 0,
-		"no-var": 0
+		"no-var": 0,
+        "max-classes-per-file": 0
     }
 }
