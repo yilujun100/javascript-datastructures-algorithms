@@ -13,14 +13,15 @@ export default class LinkedList {
         const node = new Node(element);
         let current;
         if (this.head == null) {
-            // catches null && undefined
+            // 向空链表添加一个元素
             this.head = node;
         } else {
             current = this.head;
             while (current.next != null) {
+                // 获取最后一项
                 current = current.next;
             }
-            current.next = node;
+            current.next = node; // 让当前元素的next指针指向要添加到链表的节点
         }
         this.count++;
     }
@@ -58,11 +59,14 @@ export default class LinkedList {
 
     // 从链表的特定位置移除一个元素
     removeAt(index) {
+        // 检查越界值
         if (index >= 0 && index < this.count) {
             let current = this.head;
             if (index === 0) {
+                // 移除第一项
                 this.head = current.next;
             } else {
+                // 移除其他项只需将previous.next指向current.next
                 const previous = this.getElementAt(index - 1);
                 current = previous.next;
                 previous.next = current.next;
@@ -70,7 +74,7 @@ export default class LinkedList {
             this.count--;
             return current.element;
         }
-        return undefined;
+        return undefined; // 如果不是有效的位置，直接return undefined
     }
 
     // 从链表中移除一个元素

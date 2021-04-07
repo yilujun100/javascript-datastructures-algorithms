@@ -3,9 +3,10 @@ import LinkedList from './linked-list';
 import { DoublyNode } from './models/linked-list-models';
 
 export default class DoublyLinkedList extends LinkedList {
+    // 扩展LinkedList类
     constructor(equalsFn = defaultEquals) {
         super(equalsFn);
-        this.tail = undefined;
+        this.tail = undefined; // 尾指针（链表最后一个元素的引用）
     }
 
     push(element) {
@@ -27,6 +28,7 @@ export default class DoublyLinkedList extends LinkedList {
             let current = this.head;
             if (index === 0) {
                 if (this.head == null) {
+                    // 如果双向链表为空，只需要把head和tail都指向新节点即可
                     this.head = node;
                     this.tail = node;
                 } else {
@@ -35,6 +37,7 @@ export default class DoublyLinkedList extends LinkedList {
                     this.head = node;
                 }
             } else if (index === this.count) {
+                // 在双向链表最后添加一个元素
                 current = this.tail;
                 current.next = node;
                 node.prev = current;
@@ -57,6 +60,7 @@ export default class DoublyLinkedList extends LinkedList {
         if (index >= 0 && index < this.count) {
             let current = this.head;
             if (index === 0) {
+                // 从头部移除一个元素
                 this.head = this.head.next;
                 if (this.count === 1) {
                     this.tail = undefined;
@@ -64,10 +68,12 @@ export default class DoublyLinkedList extends LinkedList {
                     this.head.prev = undefined;
                 }
             } else if (index === this.count - 1) {
+                // 从尾部移除一个元素
                 current = this.tail;
                 this.tail = current.prev;
                 this.tail.next = undefined;
             } else {
+                // 从中间移除一个元素
                 current = this.getElementAt(index);
                 const previous = current.prev;
                 previous.next = current.next;
