@@ -12,3 +12,4 @@ export { palindromeChecker } from './others/palindrome-checker';
 // chapter 06
 export { default as LinkedList } from './data-structures/linked-list';
 export { default as DoublyLinkedList } from './data-structures/doubly-linked-list';
+export { default as CircularLinkedList } from './data-structures/circular-linked-list';
